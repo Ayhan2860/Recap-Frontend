@@ -1,0 +1,22 @@
+
+
+  <div style="padding-top: 5px; padding-bottom: 5px;" class="row">
+<p>
+  <a style="width: 100%;" class="btn btn-primary" data-bs-toggle="collapse" href="#coloring" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Renkler
+  </a>
+ 
+</p>
+<div class="collapse" id="coloring">
+  <div class="card card-body">
+    <ul  class="list-group">
+        <li (click)="setCurrentColor(color)"
+        style="cursor: pointer;"
+        routerLink="/cars/color/{{color.id}}"
+         *ngFor="let color of colors"
+          [class]="getCurrentColorClass(color)"
+          >{{color.colorName}}</li>
+      </ul>
+  </div>
+</div>
+</div>

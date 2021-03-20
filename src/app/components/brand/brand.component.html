@@ -1,0 +1,23 @@
+
+
+
+  <div  style="padding-top: 5px; padding-bottom: 5px; margin-top: 10px;" class="row">
+    <p>
+      <a style="width: 100%;" class="btn btn-primary" data-bs-toggle="collapse" href="#brands" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Markalar
+      </a>
+     
+    </p>
+    <div class="collapse" id="brands">
+      <div class="card card-body">
+        <ul   class="list-group">
+          <li
+          (click)="setCurrentBrand(brand)"
+          routerLink="/cars/brand/{{brand.brandId}}"
+          *ngFor="let brand of brands"
+            [class]="getCurrentBrandClass(brand)"
+            >{{brand.brandName}}</li>
+          </ul>
+          
+      </div>
+    </div>

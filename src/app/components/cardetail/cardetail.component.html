@@ -1,0 +1,48 @@
+<div >
+<div   id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> 
+    <!-- <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div> -->
+    <div class="carousel-inner">
+      <div 
+      style="overflow: hidden;"
+       *ngFor="let img of images let i= index"
+            [ngClass]="getSliderClassName(i)">
+        <img 
+        src="{{basePath}}/{{img.imagePath}}" width="700" height="400" class="d-block w-100 " alt="...">
+      </div>
+  
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <th>Marka: {{ car.brandName}}</th>
+        <td>Model: {{ car.carName}}</td>
+        <td>Fiyat: {{ car.dailyPrice}}</td>
+        <td>Açıklama: {{ car.description}} </td>
+        <td><a href="#" class="card-link btn btn-success">Kirala</a></td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+
