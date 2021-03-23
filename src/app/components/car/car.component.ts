@@ -12,7 +12,8 @@ import { environment } from 'src/environments/environment';
 export class CarComponent implements OnInit {
    imagePath = environment.baseUrl;
    cars:Car[]=[];
-
+   currentCar:Car;
+   filterCar:string;
    
    
   
@@ -35,27 +36,33 @@ export class CarComponent implements OnInit {
     })
   
   }
+ 
+
   
    getCars(){
      this.carService.getCars().subscribe(response=>{
 
        this.cars=response.data;
-       console.log(response.data)
+      //  console.log(response.data)
 
-     })
+     });
    }
    getByColorId(colorId:number){
      this.carService.getCarByColorId(colorId).subscribe(response=>{
        this.cars = response.data;
-       console.log(response.data)
+      
      })
    }
    getByCarId(brandId:number){
     this.carService.getCarByCarId(brandId).subscribe(response=>{
       this.cars = response.data;
+    
       
     })
   }
- 
+  
+ setCurrentCars(car:Car){
+   this.currentCar=car;
+ }
  
 }

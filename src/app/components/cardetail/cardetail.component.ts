@@ -17,6 +17,7 @@ export class CardetailComponent implements OnInit {
   basePath = environment.baseUrl;
   images:CarImage[];
   cars:Car[];
+  
   constructor(
     private activatedRoute: ActivatedRoute,
     private carImageService: CarImageService,

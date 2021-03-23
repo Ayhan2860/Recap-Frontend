@@ -11,6 +11,7 @@ export class BrandComponent implements OnInit {
  
  brands: Brand[] = [];  
  currentBrand:Brand;
+ filterBrand=""
 
   constructor(private brandService:BrandService) { }
 
@@ -44,5 +45,5 @@ export class BrandComponent implements OnInit {
         return "list-group-item"
        }
   }
-
+ 
 }

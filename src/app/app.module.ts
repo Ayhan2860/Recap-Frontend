@@ -10,6 +10,11 @@ import { NaviComponent } from './components/navi/navi.component';
 import { OptionsComponent } from './components/options/options.component';
 import {  HttpClientModule } from '@angular/common/http';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
+import { CarPipe } from './pipes/car.pipe';
+import { BrandPipe } from './pipes/brand.pipe';
+import { ColorPipe } from './pipes/color.pipe';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FilterpipePipe } from './pipes/filterpipe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,12 +24,18 @@ import { CardetailComponent } from './components/cardetail/cardetail.component';
     ColorComponent,
     NaviComponent,
     OptionsComponent,
-    CardetailComponent
+    CardetailComponent,
+    CarPipe,
+    BrandPipe,
+    ColorPipe,
+    FilterpipePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

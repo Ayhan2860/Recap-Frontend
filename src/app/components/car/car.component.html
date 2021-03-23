@@ -1,22 +1,31 @@
 
+  <div class="row">
+   <div class="col-md-4"> 
+   
+ <input style="margin-top: 20px; width: 18rem; margin-left: 25px;"  [(ngModel)]="filterCar"
+  class="form-control me-2" type="text" placeholder="Araç Ara" aria-label="Search">
+
+</div> 
+<div class="col-md-4">
+
+ </div> 
 <div  style="width: 100%; " class=" d-flex flex-wrap justify-content-between justify-content-xl-start">
-<div *ngFor="let car of cars"   class="card " style="width: 18rem; margin: 2rem;">
-  <a href="{{imagePath}}/{{car.imagePath}}">
-    <img  src="{{imagePath}}/{{car.imagePath}}" class="card-img-top" title="{{car.carName}}" alt="..."></a>
-    <div class="card-body">
-      <h5 class="card-title">Recap Rent A Car</h5>
-      <p class="card-text">Trafik kurallarına uyalım uymayanları uyaralım...</p>
-    </div>
+
+<div *ngFor="let car of cars | carPipe:filterCar "   class="card " style="width: 13rem;  margin: 2rem;">
+ 
+    <img  src="{{imagePath}}/{{car.imagePath}}" class="card-img-top" title="{{car.carName}}" alt="...">
+   
     <ul  class="list-group list-group-flush">
       <li class="list-group-item">Marka: {{car.brandName}}</li>
-       <li class="list-group-item">Model: {{car.carName}}</li> 
-      <li class="list-group-item">Fiyat: {{car.dailyPrice}}</li>
+      <li class="list-group-item">Fiyat: {{ car.dailyPrice | currency:'₺'}}</li>
     </ul>
     <div  class="card-body">
-      <a  routerLink="cars/cardetail/{{car.carId}}" class="card-link btn btn-secondary"
-    
-      >Detay </a>
+     <button type="button" 
+     (click)="setCurrentCars(car)"
+     routerLink="../../../cars/cardetail/{{car.carId}}" 
+     class="card-link btn btn-secondary">Detay</button>
       <a href="#" class="card-link btn btn-success">Kirala</a>
     </div>
   </div>
 </div> 
+
