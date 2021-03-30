@@ -23,8 +23,13 @@ export class CarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-      if(params["brandId"]){
+    this.activatedRoute.queryParams.subscribe(params=>{
+    if (params["brandId"]&&params["colorId"]) {
+      this.getBrandIdAndColorId(params["brandId"],params["colorId"])
+    }
+    
+    
+      else if (params["brandId"]){
        this.getByCarId(params["brandId"])
       }
       else if(params["colorId"]){
@@ -43,26 +48,40 @@ export class CarComponent implements OnInit {
      this.carService.getCars().subscribe(response=>{
 
        this.cars=response.data;
-      //  console.log(response.data)
+
 
      });
    }
+
+
+   getBrandIdAndColorId(brandId:number,colorId:number){
+     this.carService.getBybrandIdAndColorId(brandId,colorId).subscribe(response=>{
+       this.cars = response.data
+     
+     })
+   }
+   
+
+
    getByColorId(colorId:number){
      this.carService.getCarByColorId(colorId).subscribe(response=>{
        this.cars = response.data;
+      console.log(this.cars);
       
      })
    }
    getByCarId(brandId:number){
     this.carService.getCarByCarId(brandId).subscribe(response=>{
-      this.cars = response.data;
-    
-      
+      this.cars = response.data
     })
   }
   
  setCurrentCars(car:Car){
    this.currentCar=car;
  }
+
+
+
+
  
 }

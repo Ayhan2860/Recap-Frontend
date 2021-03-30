@@ -1,24 +1,21 @@
 
 
-  <div style="padding-top: 5px; padding-bottom: 5px;" class="row">
-<p>
-  <a style="width: 100%;" class="btn btn-primary" data-bs-toggle="collapse" href="#coloring" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Renkler
-  </a>
- 
-</p>
-<div class="collapse" id="coloring">
-  <div class="card card-body">
-    <ul  class="list-group">
-      <li class=" list-group-item">
-        <input [(ngModel)]="filterColor" class="form-control" id="colorText" placeholder="Renk Ara" type="text"></li>
-        <li (click)="setCurrentColor(color)"
-        style="cursor: pointer; outline: none;"
-        routerLink="/cars/color/{{color.id}}"
-         *ngFor="let color of colors | colorPipe:filterColor"
-          [class]="getCurrentColorClass(color)"
-          >{{color.colorName}}</li>
-      </ul>
-  </div>
-</div>
+<div
+  style="padding-top: 15px; padding-bottom: 5px; margin-top: 10px"
+  class="row"
+>
+
+  <input [(ngModel)]="filterColor" type="text" class="form-control" id="filterColor" placeholder="Renk Ara">
+
+  <select style="margin-top: 5px;"  class="form-select mt-2" aria-label="size 3 select example">
+    <option selected="getCurrentColorClass(color)" routerLink="/cars" value="">Tüm Renkler</option>
+    <option
+      routerLink="/cars/color/{{color.id}}"
+      *ngFor="let color of colors | colorPipe:filterColor"
+      value="{{ color.id }}"
+      
+    >
+      {{ color.colorName }}
+    </option>
+  </select>
 </div>

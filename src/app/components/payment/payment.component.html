@@ -1,0 +1,39 @@
+<form class="row g-3 needs-validation" novalidate>
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+    <label for="validationCustom02" class="form-label"
+      >Kartın Sahibinin Adı Soyadı</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      placeholder="Ad Soyad"
+      required="required"
+    />
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+    <label for="validationCustom03" class="form-label">Kart Numarası</label>
+    <input type="text"  placeholder="0000-0000-0000-0000" class="form-control" id="validationCustom03" required />
+    <div class="invalid-feedback"></div>
+  </div>
+  <div class="col-md-2">
+    <label for="validationCustom03" class="form-label">K.S.K.T</label>
+    <input  type="text" placeholder="00/00" class="form-control" id="validationCustom05" required />
+   
+  </div>
+  <div class="col-md-2">
+    <label for="validationCustom05" class="form-label">CCV</label>
+    <input type="text" placeholder="000" class="form-control" id="validationCustom05" required />
+  
+  </div>
+  <div class="col-12">
+  </div>
+  <div class="col-12">
+    <button (click)="totalPricePay()" class="btn btn-primary" type="submit">
+      {{ amountTotalPrice | currency:'₺'}} Ödemeyi Onayla
+    </button>
+  </div>
+</form>

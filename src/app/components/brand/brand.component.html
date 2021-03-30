@@ -1,33 +1,16 @@
 <div
-  style="padding-top: 5px; padding-bottom: 5px; margin-top: 10px"
+  style="padding-top: 15px; padding-bottom: 5px; margin-top: 10px"
   class="row"
 >
-  <p>
-    <a
-      style="width: 100%"
-      class="btn btn-primary"
-      data-bs-toggle="collapse"
-      href="#brands"
-      role="button"
-      aria-expanded="false"
-      aria-controls="collapseExample"
+<input [(ngModel)]="filterBrand" type="text" class="form-control" id="filterBrand" placeholder="Marka Ara">
+  <select style="margin-top: 5px;"  class="form-select mt-2" size="8" aria-label="size 3 select example">
+    <option selected="getCurrentBrandClass(brand)" routerLink="/cars" value="">Tüm Markalar</option>
+    <option
+      routerLink="/cars/brand/{{ brand.brandId }}"
+      *ngFor="let brand of brands | brandPipe:filterBrand"
+      value="{{ brand.brandId }}"
     >
-      Markalar
-    </a>
-  </p>
-  <div class="collapse" id="brands">
-    <div class="card card-body">
-      <ul class="list-group">
-        <li
-          (click)="setCurrentBrand(brand)"
-          style="outline: none; cursor: pointer"
-          routerLink="/cars/brand/{{ brand.brandId }}"
-          *ngFor="let brand of brands | brandPipe: filterBrand"
-          [class]="getCurrentBrandClass(brand)"
-        >
-          {{ brand.brandName }}
-        </li>
-      </ul>
-    </div>
-  </div>
+      {{ brand.brandName }}
+    </option>
+  </select>
 </div>

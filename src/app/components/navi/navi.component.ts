@@ -10,7 +10,7 @@ import { CarService } from 'src/app/services/car.service';
 export class NaviComponent implements OnInit {
 
   cars:Car[]=[]
-  filterCar:string
+  filterCar:string=''
   constructor(private carSevice:CarService) { }
 
   ngOnInit(): void {

@@ -38,9 +38,14 @@
       <tr *ngFor="let car of cars">
         <th>Marka: {{ car.brandName}}</th>
         <td>Model: {{ car.carName}}</td>
-        <td>Fiyat: {{ car.dailyPrice}}</td>
+        <td>Fiyat: {{ car.dailyPrice | currency:'₺'}}</td>
         <td>Açıklama: {{ car.description}} </td>
-        <td><a href="#" class="card-link btn btn-success">Kirala</a></td>
+        <td>
+          
+          <app-rental [carDto] ="car">
+
+          </app-rental>
+        
       </tr>
       
     </tbody>

@@ -1,0 +1,100 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Kirala
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <th scope="row">Marka: {{ carDto.brandName }}</th>
+              <th>Model: {{ carDto.carName }}</th>
+            </tr>
+            <tr>
+              <th scope="row">Model Yılı: {{ carDto.modelYear }}</th>
+              <th scope="row">
+                Günlük Fiyat: {{ carDto.dailyPrice | currency: "₺" }}
+              </th>
+            </tr>
+          </tbody>
+        </table>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          [(ngModel)]="customerId"
+        >
+          <option
+            *ngFor="let customer of customers"
+            [value]="customer.customerId"
+          >
+            {{ customer.firstName }} {{ customer.lastName }} |
+            {{ customer.companyName }}
+          </option>
+        </select>
+        <div class="form-group row">
+          <div class="col-md-5">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Kiralama Tarihi</label
+            >
+            <input
+              class="form-control"
+              [min]="initialDate(0)"
+             
+              type="date"
+              [(ngModel)]="rentDate"
+            />
+          </div>
+          <div class="col-md-5">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Teslim Tarihi</label
+            >
+            <input
+              class="form-control"
+              type="date"
+              [min]="initialDate(2)"
+              [(ngModel)]="returnDate"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Geri Dön
+        </button>
+        <button
+          (click)="addToRental()"
+          type="button"
+          data-bs-dismiss="modal"
+          class="btn btn-primary"
+        >
+          Ödeme Sayfasına Git
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
